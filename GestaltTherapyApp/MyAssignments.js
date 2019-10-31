@@ -24,7 +24,7 @@ export default class MyAssignments extends Component {
         <View style={styles.screen}>
           <View style={styles.container}>
             <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5}}>Recent</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Assignment')}>
               <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', textAlign:'left', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment Four</Text>
             </TouchableOpacity>
             <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5, marginTop:30}}>Past</Text>
