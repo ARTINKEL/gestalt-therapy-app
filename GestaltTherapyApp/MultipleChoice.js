@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 
-export default function MultipleChoice() {
-    return (
-        <View>
-            <Text>Question goes here</Text>
-        </View>
-    )
+export default class MultipleChoice extends Component {
+    render(){
+        return (
+            <View>
+                <Text>Question goes here</Text>
+            </View>
+        )
+    }
 }
