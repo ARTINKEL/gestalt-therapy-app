@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, TextInput } from 'react-native';
+import {StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import ShortAnswer from './ShortAnswer.js';
 
 
 export default class MyAssignments extends Component {
@@ -23,8 +24,7 @@ export default class MyAssignments extends Component {
       return (
         <View style={styles.screen}>
           <View style={styles.container}>
-            <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:16, padding:5}}>1. How did you feel about today's session?</Text>
-            <TextInput style={{alignSelf:'center', width:250, height:100, borderColor:'#000000', borderWidth:1}} editable multiline numberOfLines={4} placeholder={'Enter answer here'}></TextInput>
+            <ShortAnswer/>
           </View>
         </View>
       );
