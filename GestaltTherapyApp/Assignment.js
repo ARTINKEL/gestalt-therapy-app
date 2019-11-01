@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ShortAnswer from './ShortAnswer.js';
+import ArticleQuestion from './ArticleQuestion.js';
 
 
 export default class MyAssignments extends Component {
@@ -25,6 +26,7 @@ export default class MyAssignments extends Component {
         <View style={styles.screen}>
           <View style={styles.container}>
             <ShortAnswer/>
+            <ArticleQuestion/>
           </View>
         </View>
       );
