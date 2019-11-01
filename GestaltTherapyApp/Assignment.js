@@ -3,6 +3,7 @@ import {StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ShortAnswer from './ShortAnswer.js';
 import ArticleQuestion from './ArticleQuestion.js';
+import MultipleChoice from './MultipleChoice.js';
 
 
 export default class MyAssignments extends Component {
@@ -26,6 +27,7 @@ export default class MyAssignments extends Component {
         <View style={styles.screen}>
           <View style={styles.container}>
             <ShortAnswer/>
+            <MultipleChoice/>
             <ArticleQuestion/>
           </View>
         </View>
