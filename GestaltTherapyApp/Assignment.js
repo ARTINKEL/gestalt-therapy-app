@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ShortAnswer from './ShortAnswer.js';
 import ArticleQuestion from './ArticleQuestion.js';
@@ -25,11 +25,16 @@ export default class MyAssignments extends Component {
     render() {
       return (
         <View style={styles.screen}>
+          
           <View style={styles.container}>
-            <ShortAnswer/>
-            <MultipleChoice/>
-            <ArticleQuestion/>
+            <ScrollView contentContainerStyle={{flexGrow:1}}>
+              <ShortAnswer/>
+              <MultipleChoice/>
+              <ArticleQuestion/>
+            </ScrollView>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('MyAssignments')}><Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Submit</Text></TouchableOpacity>
           </View>
+          
         </View>
       );
     }
@@ -50,5 +55,6 @@ export default class MyAssignments extends Component {
       marginRight:30,
       borderRadius:10,
       backgroundColor: '#FFFFFF',
+      padding:10
     },
   });

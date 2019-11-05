@@ -16,8 +16,8 @@ export default class MultipleChoice extends Component {
             value:0
         }
         return (
-            <View style={{flex:1, alignItems:'center'}}>
-                <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:16, padding:5}}>2. On a scale of 1 to 5, how did you feel about today's session?</Text>
+            <View style={{flex:1, alignItems:'center', paddingBottom:20, maxHeight:130}}>
+                <Text style={{textAlign:'left', fontFamily:'sans-serif-condensed', fontSize:16, paddingBottom:10, paddingLeft:20}}>2. On a scale of 1 to 5, how did you feel about today's session?</Text>
                 <RadioForm
                     radio_props={radio_props}
                     initial={0}
@@ -33,8 +33,13 @@ export default class MultipleChoice extends Component {
                             buttonSize={40}
                             buttonOuterSize={80}
                             buttonStyle={{}}
-                            buttonWrapStyle={{marginLeft: 10}}
+                            buttonWrapStyle={{}}
                         />
+                         <RadioButtonLabel
+                            labelHorizontal={false}
+                            labelStyle={{fontSize: 20, color: '#FFFFFF'}}
+                            labelWrapStyle={{}}
+                            />
                     </RadioButton>
                 </RadioForm>
             </View>
