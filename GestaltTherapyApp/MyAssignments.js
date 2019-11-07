@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
@@ -23,15 +23,61 @@ export default class MyAssignments extends Component {
       return (
         <View style={styles.screen}>
           <View style={styles.container}>
-            <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5}}>Recent</Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Assignment')}>
-              <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', textAlign:'left', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment Four</Text>
-            </TouchableOpacity>
-            <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5, marginTop:30}}>Past</Text>
-            <Text style={{textAlign:'center', fontSize:12, padding:5, fontFamily:'serif', fontStyle:'italic'}}>These assignments have already been submitted, but you can download your answers.</Text>
-            <TouchableOpacity><Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'left', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment Three</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'left', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment Two</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'left', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment One</Text></TouchableOpacity>
+
+            <ScrollView>
+              <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5}}>Recent</Text>
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Assignment')}>
+                <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>Assignment 7</Text>
+              </TouchableOpacity>
+
+              <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5, marginTop:30}}>Past</Text>
+              <Text style={{textAlign:'center', fontSize:12, padding:5, fontFamily:'serif', fontStyle:'italic'}}>Click to download previous assignments.</Text>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 6
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 5
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 4
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 3
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 2
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+                  Assignment 1
+                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+                </Text>
+              </TouchableOpacity>
+
+            </ScrollView>
+
           </View>
         </View>
       );
@@ -52,6 +98,7 @@ export default class MyAssignments extends Component {
       marginLeft:30,
       marginRight:30,
       borderRadius:10,
+      padding:20,
       backgroundColor: '#FFFFFF',
     },
   });
