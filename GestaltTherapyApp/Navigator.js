@@ -2,14 +2,16 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import MyAssignments from './MyAssignments.js';
 import Assignment from './Assignment.js';
+import LogIn from './LogIn.js';
 
 const MainNavigator = createStackNavigator(
   {
-  MyAssignments: MyAssignments,
-  Assignment: Assignment
+    LogIn: LogIn,
+    MyAssignments: MyAssignments,
+    Assignment: Assignment
   },
   {
-    initialRouteName: 'MyAssignments'
+    initialRouteName: 'LogIn'
   }
 );
 

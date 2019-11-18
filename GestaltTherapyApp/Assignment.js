@@ -34,7 +34,9 @@ export default class MyAssignments extends Component {
               <ArticleQuestion/>
             </ScrollView>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('MyAssignments')}><Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Submit</Text></TouchableOpacity>
+            <View style={{alignSelf:'center', width:150}}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('MyAssignments')}><Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Submit</Text></TouchableOpacity>
+            </View>
             
           </View>
           
