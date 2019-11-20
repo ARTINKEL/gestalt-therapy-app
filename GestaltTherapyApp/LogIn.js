@@ -29,6 +29,7 @@ export default class LogIn extends Component {
                     <TextInput style={{alignSelf:'center', textAlign:'left', textAlignVertical:'top', margin:10, padding:10, paddingTop:8, width:250, height:40, borderColor:'#000000', borderWidth:1, borderRadius:10,}} editable maxLength={4} placeholder={'Your 4-digit code'}></TextInput>
                     <View style={{alignSelf:'center', width:150}}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('MyAssignments')}><Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Log In</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('AssignmentBuilder')}><Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Build</Text></TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
       flex:1,
     },
     container: {
-      height:300,
+      height:325,
       marginTop:30,
       marginBottom:30,
       marginLeft:30,
