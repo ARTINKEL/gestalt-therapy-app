@@ -2,8 +2,15 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
+<<<<<<< HEAD
   "packagerPid": 9672,
   "expoServerNgrokUrl": "https://i8-kfe.nvmanis.gestalttherapyapp.exp.direct",
   "packagerNgrokUrl": "https://packager.i8-kfe.nvmanis.gestalttherapyapp.exp.direct",
   "ngrokPid": 11924
+=======
+  "packagerPid": 11760,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
+>>>>>>> parent of 7114d4d7... added formik library
 }
