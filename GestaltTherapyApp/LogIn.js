@@ -30,6 +30,33 @@ export default class LogIn extends Component {
       this.props.navigation.navigate('MyAssignments')
     }
 
+    // this function handles log ins by contacting the server and matching user id and password
+    UserLoginFunction = () => {
+      const { UserID } = this.state;
+      const { UserPassword } = this.state;
+
+      fetch('https://127.0.0.1/scripts/UserLogin.php', {
+        method: 'POST',
+        headers: {
+          //'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id : UserID,
+          password: UserPassword
+        })
+      }).then((response) => response.json())
+          .then((responseJson) => {
+            if (responseJson === 'Data Matched') {
+              this.handleSubmit()
+            } else {
+              Alert.alert(responseJson)
+            }
+          }).catch((error) => {
+            console.error(error);
+          })
+    }
+
     static navigationOptions = {
       title: 'My Assignments',
       header: (
@@ -45,13 +72,16 @@ export default class LogIn extends Component {
             <View style={styles.screen}>
               <KeyboardAvoidingView style={{ flex: 1, flexDirection: 'column',justifyContent: 'center',}} behavior="padding" enabled   keyboardVerticalOffset={0}>
 	            <ScrollView>
+                {/*Title Text*/}
                 <View style={styles.head}>
                     <Text style={{backgroundColor:'#C8F4F9', width:200, fontSize:32}}>Working Title</Text>
                 </View>
                 <View style={styles.container}>
-                  
+
+                    {/*Welcome Back text*/}
                     <Text style={{textAlign:'center', fontSize:20, marginBottom:20}}>Welcome Back</Text>
 
+                    {/*ID Number text*/}
                     <Text style={{fontSize:16, marginLeft:15}}>ID Number</Text>
                     <TextInput 
                       style={{alignSelf:'center', textAlign:'left', textAlignVertical:'top', margin:10, padding:10, paddingTop:8, width:250, height:40, borderColor:'#000000', borderWidth:1, borderRadius:10,}} 
@@ -62,6 +92,7 @@ export default class LogIn extends Component {
                       onChangeText={this.handleIDChange}
                     />
 
+                    {/*Password text*/}
                     <Text style={{fontSize:16, marginLeft:15}}>Password</Text>
                     <TextInput 
                       style={{alignSelf:'center', textAlign:'left', textAlignVertical:'top', margin:10, padding:10, paddingTop:8, width:250, height:40, borderColor:'#000000', borderWidth:1, borderRadius:10,}} 
@@ -74,11 +105,14 @@ export default class LogIn extends Component {
                     />
 
                     <View style={{alignSelf:'center', width:150}}>
+                        {/*Submit Button*/}
                         <TouchableOpacity 
-                          onPress={this.handleSubmit}
+                          onPress={this.UserLoginFunction}
                         >
                         <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Log In</Text>
                         </TouchableOpacity>
+                        
+                        {/*Build Button*/}
                         <TouchableOpacity 
                           onPress={() => this.props.navigation.navigate('AssignmentBuilder')}
                           >
