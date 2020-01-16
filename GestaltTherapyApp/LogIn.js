@@ -8,7 +8,7 @@ export default class LogIn extends Component {
       super(props);
       this.state = { 
         userID: '',
-        password:'' 
+        password: '' 
       }
       this.handleIDChange = this.handleIDChange.bind(this);
       this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -32,18 +32,15 @@ export default class LogIn extends Component {
 
     // this function handles log ins by contacting the server and matching user id and password
     UserLoginFunction = () => {
-      const { UserID } = this.state;
-      const { UserPassword } = this.state;
-
-      fetch('https://127.0.0.1/scripts/UserLogin.php', {
+      fetch('http://10.2.166.64:80/scripts/UserLogin.php', {
         method: 'POST',
         headers: {
-          //'Accept': 'application/json',
+          'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id : UserID,
-          password: UserPassword
+          id: this.state.userID,
+          password: this.state.password
         })
       }).then((response) => response.json())
           .then((responseJson) => {
@@ -51,6 +48,7 @@ export default class LogIn extends Component {
               this.handleSubmit()
             } else {
               Alert.alert(responseJson)
+              console.log(responseJson)
             }
           }).catch((error) => {
             console.error(error);
