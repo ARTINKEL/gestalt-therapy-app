@@ -19,6 +19,38 @@ export default class MyAssignments extends Component {
         },
       };
 
+      constructor(props) {
+        super(props);
+        this.state = { 
+          assignments: [],
+          userID: global.userID 
+        }
+      }
+
+      // RetrieveAssignmentsFunction = () => {
+      //   fetch('http://10.2.185.147:80/RetrieveAssignments.php', {
+      //     method: 'GET',
+      //     headers: {
+      //       'Accept': 'application/json',
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({
+      //       assign: this.state.assignments,
+      //       id: this.state.userID
+      //     })
+      //   }).then((response) => response.json())
+      //       .then((responseJson) => {
+      //         if (responseJson === 'Data Matched') {
+      //           this.handleSubmit()
+      //         } else {
+      //           Alert.alert(responseJson)
+      //           console.log(responseJson)
+      //         }
+      //       }).catch((error) => {
+      //         console.error(error);
+      //       })
+      // }
+
     render() {
       return (
         <View style={styles.screen}>
