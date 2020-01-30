@@ -33,7 +33,7 @@ export default class LogIn extends Component {
 
     // this function handles log ins by contacting the server and matching user id and password
     UserLoginFunction = () => {
-      fetch('http://10.2.185.147:80/UserLogin.php', {
+      fetch('http://10.2.200.180:80/UserLogin.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

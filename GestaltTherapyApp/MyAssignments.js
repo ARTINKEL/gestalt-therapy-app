@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView, Alert, FlatList } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
@@ -22,41 +22,44 @@ export default class MyAssignments extends Component {
       constructor(props) {
         super(props);
         this.state = { 
-          assignments: [],
-          userID: global.userID 
+          userID: global.userID,
+          assignmentData: []
         }
       }
 
-      // RetrieveAssignmentsFunction = () => {
-      //   fetch('http://10.2.185.147:80/RetrieveAssignments.php', {
-      //     method: 'GET',
-      //     headers: {
-      //       'Accept': 'application/json',
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify({
-      //       assign: this.state.assignments,
-      //       id: this.state.userID
-      //     })
-      //   }).then((response) => response.json())
-      //       .then((responseJson) => {
-      //         if (responseJson === 'Data Matched') {
-      //           this.handleSubmit()
-      //         } else {
-      //           Alert.alert(responseJson)
-      //           console.log(responseJson)
-      //         }
-      //       }).catch((error) => {
-      //         console.error(error);
-      //       })
-      // }
+componentDidMount() {
+
+  return fetch('http://10.2.200.180:80/RetrieveAssignments.php')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      this.setState({
+        assignmentData: responseJson,
+      }, function() {
+        // In this block you can do something with new state.
+        console.log(responseJson)
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 
     render() {
+
+      const assignment = Object.keys(this.state.assignmentData).map((key) => (
+            <Text>{key}</Text>
+    ));
+
       return (
         <View style={styles.screen}>
           <View style={styles.container}>
-
+      
             <ScrollView>
+
+              <View>
+                <Text>{assignment}</Text>
+              </View>
+
               <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5}}>Recent</Text>
 
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Assignment')}>
