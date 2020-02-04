@@ -29,7 +29,7 @@ export default class MyAssignments extends Component {
 
 componentDidMount() {
 
-  return fetch('http://10.2.200.180:80/RetrieveAssignments.php')
+  return fetch('http://10.2.213.196:80/RetrieveAssignments.php')
     .then((response) => response.json())
     .then((responseJson) => {
       this.setState({
@@ -47,7 +47,12 @@ componentDidMount() {
     render() {
 
       const assignment = Object.keys(this.state.assignmentData).map((key) => (
-            <Text>{key}</Text>
+        <TouchableOpacity>
+        <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
+          {key}
+          <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
+        </Text>
+      </TouchableOpacity>
     ));
 
       return (
@@ -55,10 +60,6 @@ componentDidMount() {
           <View style={styles.container}>
       
             <ScrollView>
-
-              <View>
-                <Text>{assignment}</Text>
-              </View>
 
               <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5}}>Recent</Text>
 
@@ -69,47 +70,9 @@ componentDidMount() {
               <Text style={{textAlign:'center', fontFamily:'sans-serif-condensed', fontSize:20, padding:5, marginTop:30}}>Past</Text>
               <Text style={{textAlign:'center', fontSize:12, padding:5, fontFamily:'serif', fontStyle:'italic'}}>Click to download previous assignments.</Text>
 
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 6
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 5
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 4
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 3
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 2
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Text style={{fontFamily:'serif', fontSize: 16, backgroundColor:'#f5f5f5', color:'#a9a9a9', textAlign:'center', marginLeft:20, marginRight:20, marginTop:20, borderRadius:10, paddingLeft:10, paddingBottom:5, paddingTop:5}}>
-                  Assignment 1
-                  <Image source={require('./download.png')} style={{height:20, width:20, tintColor:'#a9a9a9'}}/>
-                </Text>
-              </TouchableOpacity>
+              <View>
+                {assignment}
+              </View>
 
             </ScrollView>
 
