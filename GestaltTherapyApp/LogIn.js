@@ -15,7 +15,6 @@ export default class LogIn extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
       
     handleIDChange(userID) {
       this.setState({ userID });
@@ -26,14 +25,18 @@ export default class LogIn extends Component {
       this.setState({ password });
     }
 
-    handleSubmit() {
-      Alert.alert('Login information received', 'User ID: ' + this.state.userID + '\n' + 'Password: ' + this.state.password)
-      this.props.navigation.navigate('MyAssignments')
+    handleSubmit(admin) {
+      if (admin == 1) {
+        this.props.navigation.navigate('AssignmentBuilder')
+      }
+      else {
+        this.props.navigation.navigate('MyAssignments')
+      }
     }
 
     // this function handles log ins by contacting the server and matching user id and password
     UserLoginFunction = () => {
-      fetch('http://10.2.213.196:80/UserLogin.php', {
+      fetch('http://172.16.208.52:80/scripts/UserLogin.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -45,10 +48,10 @@ export default class LogIn extends Component {
         })
       }).then((response) => response.json())
           .then((responseJson) => {
-            if (responseJson === 'Data Matched') {
-              this.handleSubmit()
+            if (responseJson.response === 'data_matched') {
+              this.handleSubmit(responseJson.admin)
             } else {
-              Alert.alert(responseJson)
+              Alert.alert("Invalid Login")
               console.log(responseJson)
             }
           }).catch((error) => {
