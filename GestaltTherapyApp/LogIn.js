@@ -14,11 +14,10 @@ export default class LogIn extends Component {
       this.handlePasswordChange = this.handlePasswordChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-      
+    
     handleIDChange(userID) {
       this.setState({ userID });
-      global.userID = this.state.userID;
+      global.userID = userID;
     }
 
     handlePasswordChange(password) {
@@ -76,7 +75,7 @@ export default class LogIn extends Component {
 	            <ScrollView>
                 {/*Title Text*/}
                 <View style={styles.head}>
-                    <Text style={{backgroundColor:'#C8F4F9', width:200, fontSize:32}}>Working Title</Text>
+                    <Text style={{backgroundColor:'#C8F4F9', width:200, fontSize:32}}>Gestalt Therapy</Text>
                 </View>
                 <View style={styles.container}>
 
@@ -101,7 +100,7 @@ export default class LogIn extends Component {
                       editable 
                       secureTextEntry={true}
                       maxLength={4} 
-                      placeholder={'Your 4-digit code'}
+                      placeholder={'Your password'}
                       value={this.state.password}
                       onChangeText={this.handlePasswordChange}
                     />
@@ -112,13 +111,6 @@ export default class LogIn extends Component {
                           onPress={this.UserLoginFunction}
                         >
                         <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Log In</Text>
-                        </TouchableOpacity>
-                        
-                        {/*Build Button*/}
-                        <TouchableOpacity 
-                          onPress={() => this.props.navigation.navigate('AssignmentBuilder')}
-                          >
-                          <Text style={{ fontFamily:'serif', fontSize: 16, backgroundColor:'#F83839', color:'#FFFFFF', alignSelf:'center', textAlign:'center', marginLeft:20, marginRight:20, marginTop:10, borderRadius:10, paddingTop:5, paddingBottom:5, paddingLeft:10, paddingRight:10}}>Build</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

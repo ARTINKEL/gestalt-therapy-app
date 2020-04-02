@@ -25,19 +25,34 @@ export default class MyAssignments extends Component {
           userID: global.userID,
           assignmentData: []
         }
+        console.log("!!!!!! " + global.userID)
       }
 
 componentDidMount() {
 
-  return fetch('http://10.2.213.196:80/RetrieveAssignments.php')
-    .then((response) => response.json())
+  return fetch('http://172.16.208.52:80/scripts/RetrieveAssignments.php', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userID: this.state.userID
+    })
+  }).then((response) => response.json())
     .then((responseJson) => {
-      this.setState({
-        assignmentData: responseJson,
-      }, function() {
-        // In this block you can do something with new state.
-        console.log(responseJson)
-      });
+      if (responseJson === 'Data pull failed') {
+        Alert.alert(responseJson)
+        console.log('Data Pull Failed')
+      }
+      else {
+        this.setState({
+          assignmentData: responseJson,
+        }, function() {
+          // In this block you can do something with new state.
+          console.log(responseJson)
+        });
+      }
     })
     .catch((error) => {
       console.error(error);
